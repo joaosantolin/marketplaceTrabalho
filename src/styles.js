@@ -45,5 +45,31 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  title: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  paragraph: {
+    margin: 5,
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+  input:{
+    margin: 5,
+    fontSize: 12,
+    padding: 5,
+    textAlign: 'left',
+    alignItems: 'left',
+    backgroundColor: 'white'
   }
 });
