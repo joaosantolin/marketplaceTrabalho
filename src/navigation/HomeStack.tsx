@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 function HeaderLogo() {
   return (
     <Image
-      source={require("../../assets/images/icon.png")} // Confirme se o caminho relativo está correto
+      source={require("../../assets/images/logomarket.png")} // Confirme se o caminho relativo está correto
       style={styles.logo}
       resizeMode="contain"
     />
