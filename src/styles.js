@@ -1,75 +1,231 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  sav:{
+  screen: {
     flex: 1,
-    borderWidth: 10,
-    borderColor: '#DCA415'
+    backgroundColor: '#f7f3ea',
   },
-  container: {
+  listContent: {
+    padding: 16,
+    paddingBottom: 32,
+  },
+  pageSection: {
+    gap: 12,
+    marginBottom: 8,
+  },
+  heroCard: {
+    backgroundColor: '#fffaf0',
+    borderRadius: 24,
+    padding: 18,
+    borderWidth: 1,
+    borderColor: '#f1d7aa',
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 2,
+  },
+  heroKicker: {
+    color: '#b45309',
+    fontWeight: '700',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+    marginBottom: 8,
+  },
+  heroTitle: {
+    color: '#1f2937',
+    fontSize: 26,
+    lineHeight: 32,
+    fontWeight: '800',
+    marginBottom: 8,
+  },
+  heroDescription: {
+    color: '#6b7280',
+    fontSize: 15,
+    lineHeight: 22,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 6,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: '#1f2937',
+  },
+  sectionSubtitle: {
+    fontSize: 13,
+    color: '#6b7280',
+  },
+  filterRow: {
+    gap: 10,
+    paddingVertical: 4,
+  },
+  filterChip: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: '#e5c58a',
+    backgroundColor: '#fff',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  filterChipActive: {
+    backgroundColor: '#b45309',
+    borderColor: '#b45309',
+  },
+  filterChipText: {
+    color: '#7c5a2f',
+    fontWeight: '700',
+  },
+  filterChipTextActive: {
+    color: '#fff',
+  },
+  announcementCard: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 16,
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: '#f0e0bf',
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 2,
+  },
+  announcementHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: 12,
+  },
+  announcementTitle: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
-  titulo: {
-    color: '#FF0000',
-    fontSize: 24,
-    textAlign: 'center',
-  },
-  subtitulo: {
-    color: '#B0B5BC',
     fontSize: 18,
-    textAlign: 'center',
+    fontWeight: '800',
+    color: '#111827',
   },
-  fundo: {
-    backgroundColor: 'pink',
+  announcementPrice: {
+    fontSize: 17,
+    fontWeight: '800',
+    color: '#0f766e',
   },
-  card: {
-    backgroundColor: '#B0B5BC',
-    margin: 4,
-    padding: 4,
+  announcementMeta: {
+    marginTop: 6,
+    color: '#8b5e34',
+    fontSize: 13,
   },
-  nome: {
-    fontSize: 12,
-    fontWeight: 'bold',
+  announcementDescription: {
+    marginTop: 12,
+    fontSize: 15,
+    lineHeight: 22,
+    color: '#374151',
   },
-  preco: {
-    fontSize: 12,
-    color: 'blue',
+  buyButton: {
+    marginTop: 14,
+    borderRadius: 14,
+    backgroundColor: '#1d4ed8',
+    paddingVertical: 12,
+    alignItems: 'center',
   },
-  descricao: {
-    fontSize: 12,
+  buyButtonText: {
+    color: '#fff',
+    fontWeight: '800',
   },
-  pizzaItem:{
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  container: {
-    flex: 1,
+  emptyState: {
+    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+    paddingVertical: 36,
+    gap: 8,
   },
-  title: {
-    margin: 24,
+  emptyTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
+    color: '#92400e',
+  },
+  emptyText: {
+    color: '#6b7280',
     textAlign: 'center',
+    lineHeight: 20,
   },
-  paragraph: {
-    margin: 5,
-    fontSize: 12,
-    fontWeight: 'bold',
-    textAlign: 'left',
+  authCard: {
+    margin: 16,
+    padding: 18,
+    borderRadius: 24,
+    backgroundColor: '#fffaf0',
+    borderWidth: 1,
+    borderColor: '#f1d7aa',
+    gap: 10,
   },
-  input:{
-    margin: 5,
-    fontSize: 12,
-    padding: 5,
-    textAlign: 'left',
-    alignItems: 'left',
-    backgroundColor: 'white'
-  }
+  fieldLabel: {
+    marginTop: 8,
+    color: '#4b5563',
+    fontWeight: '700',
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#e5c58a',
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    color: '#111827',
+  },
+  textArea: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#e5c58a',
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    minHeight: 120,
+    color: '#111827',
+  },
+  primaryButton: {
+    marginTop: 10,
+    backgroundColor: '#b45309',
+    paddingVertical: 13,
+    borderRadius: 14,
+    alignItems: 'center',
+  },
+  primaryButtonText: {
+    color: '#fff',
+    fontWeight: '800',
+  },
+  secondaryButton: {
+    backgroundColor: '#fff',
+    paddingVertical: 13,
+    borderRadius: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e5c58a',
+  },
+  secondaryButtonText: {
+    color: '#7c5a2f',
+    fontWeight: '800',
+  },
+  dangerButton: {
+    backgroundColor: '#fee2e2',
+    paddingVertical: 13,
+    borderRadius: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#fecaca',
+  },
+  dangerButtonText: {
+    color: '#b91c1c',
+    fontWeight: '800',
+  },
+  profileEmail: {
+    fontSize: 16,
+    color: '#374151',
+    marginBottom: 6,
+  },
+  helperText: {
+    padding: 24,
+    textAlign: 'center',
+    color: '#6b7280',
+  },
 });
