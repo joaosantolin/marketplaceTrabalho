@@ -1,12 +1,12 @@
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
-import { useAuthUser } from "../src/hooks/useAuthUser";
-import { login, logout } from "../src/services/AuthService";
-import { styles } from "../src/styles";
+import { useAuthUser } from "../hooks/useAuthUser";
+import { login, logout } from "../services/AuthService";
+import { styles } from "../styles";
 
 export default function ProfileScreen() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { user, loading } = useAuthUser();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -31,7 +31,7 @@ export default function ProfileScreen() {
   if (loading) {
     return (
       <View style={styles.screen}>
-        <Text style={styles.helperText}>Carregando perfil...</Text>
+        <Text style={styles.helperText}>A carregar perfil...</Text>
       </View>
     );
   }
@@ -42,7 +42,7 @@ export default function ProfileScreen() {
         <View style={styles.authCard}>
           <Text style={styles.sectionTitle}>Entrar na conta</Text>
           <Text style={styles.sectionSubtitle}>
-            Acesse para anunciar novos itens e ver seus anúncios.
+            Aceda para anunciar novos itens e ver os seus anúncios.
           </Text>
 
           <Text style={styles.fieldLabel}>E-mail</Text>
@@ -70,8 +70,8 @@ export default function ProfileScreen() {
             <Text style={styles.primaryButtonText}>Entrar</Text>
           </Pressable>
 
-          <Pressable style={styles.secondaryButton} onPress={() => router.push("/signup")}>
-            <Text style={styles.secondaryButtonText}>Ir para cadastro</Text>
+          <Pressable style={styles.secondaryButton} onPress={() => navigation.navigate("Signup")}>
+            <Text style={styles.secondaryButtonText}>Ir para registo</Text>
           </Pressable>
         </View>
       </View>
@@ -81,19 +81,19 @@ export default function ProfileScreen() {
   return (
     <View style={styles.screen}>
       <View style={styles.authCard}>
-        <Text style={styles.sectionTitle}>Perfil do usuário</Text>
+        <Text style={styles.sectionTitle}>Perfil do utilizador</Text>
         <Text style={styles.profileEmail}>{user.email}</Text>
 
-        <Pressable style={styles.primaryButton} onPress={() => router.push("/new-ad")}>
+        <Pressable style={styles.primaryButton} onPress={() => navigation.navigate("NewAd")}>
           <Text style={styles.primaryButtonText}>Anunciar novo item</Text>
         </Pressable>
 
-        <Pressable style={styles.secondaryButton} onPress={() => router.push("/my-ads")}>
-          <Text style={styles.secondaryButtonText}>Ver meus anúncios</Text>
+        <Pressable style={styles.secondaryButton} onPress={() => navigation.navigate("MyAds")}>
+          <Text style={styles.secondaryButtonText}>Ver os meus anúncios</Text>
         </Pressable>
 
         <Pressable style={styles.dangerButton} onPress={handleLogout}>
-          <Text style={styles.dangerButtonText}>Logout</Text>
+          <Text style={styles.dangerButtonText}>Sair</Text>
         </Pressable>
       </View>
     </View>

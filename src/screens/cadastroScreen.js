@@ -1,11 +1,11 @@
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
-import { cadastrar } from "../src/services/AuthService";
-import { styles } from "../src/styles";
+import { cadastrar } from "../services/AuthService";
+import { styles } from "../styles";
 
 export default function SignupScreen() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -18,9 +18,9 @@ export default function SignupScreen() {
 
     try {
       await cadastrar({ name: name.trim(), email: email.trim(), senha });
-      router.replace("/profile");
+      navigation.replace("Perfil");
     } catch (error) {
-      Alert.alert("Erro ao cadastrar", error.message);
+      Alert.alert("Erro ao registar", error.message);
     }
   }
 
@@ -29,13 +29,13 @@ export default function SignupScreen() {
       <View style={styles.authCard}>
         <Text style={styles.sectionTitle}>Criar conta</Text>
         <Text style={styles.sectionSubtitle}>
-          Cadastre-se para publicar e acompanhar seus anúncios.
+          Registe-se para publicar e acompanhar os seus anúncios.
         </Text>
 
         <Text style={styles.fieldLabel}>Nome</Text>
         <TextInput
           style={styles.input}
-          placeholder="Seu nome"
+          placeholder="O seu nome"
           placeholderTextColor="#9ca3af"
           value={name}
           onChangeText={setName}
@@ -63,10 +63,10 @@ export default function SignupScreen() {
         />
 
         <Pressable style={styles.primaryButton} onPress={handleSignup}>
-          <Text style={styles.primaryButtonText}>Cadastrar</Text>
+          <Text style={styles.primaryButtonText}>Registar</Text>
         </Pressable>
 
-        <Pressable style={styles.secondaryButton} onPress={() => router.back()}>
+        <Pressable style={styles.secondaryButton} onPress={() => navigation.goBack()}>
           <Text style={styles.secondaryButtonText}>Voltar</Text>
         </Pressable>
       </View>

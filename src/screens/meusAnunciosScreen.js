@@ -1,15 +1,15 @@
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
-import { AnnouncementCard } from "../src/components/AnnouncementCard";
-import { db } from "../src/firebaseConfig";
-import { useAuthUser } from "../src/hooks/useAuthUser";
-import { getTimestampMillis } from "../src/services/marketplaceService";
-import { styles } from "../src/styles";
+import { AnnouncementCard } from "../components/AnnouncementCard";
+import { db } from "../firebaseConfig";
+import { useAuthUser } from "../hooks/useAuthUser";
+import { getTimestampMillis } from "../services/marketplaceService";
+import { styles } from "../styles";
 
 export default function MyAdsScreen() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { user, loading } = useAuthUser();
   const [announcements, setAnnouncements] = useState([]);
 
@@ -32,7 +32,7 @@ export default function MyAdsScreen() {
   if (loading) {
     return (
       <View style={styles.screen}>
-        <Text style={styles.helperText}>Carregando...</Text>
+        <Text style={styles.helperText}>A carregar...</Text>
       </View>
     );
   }
@@ -43,10 +43,10 @@ export default function MyAdsScreen() {
         <View style={styles.authCard}>
           <Text style={styles.sectionTitle}>Faça login para continuar</Text>
           <Text style={styles.sectionSubtitle}>
-            Acesse seu perfil para ver os anúncios publicados por você.
+            Aceda ao seu perfil para ver os anúncios publicados por si.
           </Text>
 
-          <Pressable style={styles.primaryButton} onPress={() => router.push("/profile")}>
+          <Pressable style={styles.primaryButton} onPress={() => navigation.navigate("Perfil")}>
             <Text style={styles.primaryButtonText}>Ir para login</Text>
           </Pressable>
         </View>
@@ -57,9 +57,9 @@ export default function MyAdsScreen() {
   return (
     <View style={styles.screen}>
       <View style={styles.pageSection}>
-        <Text style={styles.sectionTitle}>Meus anúncios</Text>
+        <Text style={styles.sectionTitle}>Os meus anúncios</Text>
         <Text style={styles.sectionSubtitle}>
-          Mostrando todos os anúncios publicados por {user.email}.
+          A mostrar todos os anúncios publicados por {user.email}.
         </Text>
       </View>
 
@@ -67,7 +67,7 @@ export default function MyAdsScreen() {
         <View style={styles.emptyState}>
           <Text style={styles.emptyTitle}>Nenhum anúncio encontrado</Text>
           <Text style={styles.emptyText}>
-            Você ainda não publicou nenhum item.
+            Ainda não publicou nenhum item.
           </Text>
         </View>
       ) : (

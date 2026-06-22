@@ -1,12 +1,12 @@
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
-import { useAuthUser } from "../src/hooks/useAuthUser";
-import { createAnnouncement } from "../src/services/marketplaceService";
-import { styles } from "../src/styles";
+import { useAuthUser } from "../hooks/useAuthUser";
+import { createAnnouncement } from "../services/marketplaceService";
+import { styles } from "../styles";
 
 export default function NewAdScreen() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { user, loading } = useAuthUser();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,7 +15,7 @@ export default function NewAdScreen() {
   async function handleCreate() {
     if (!user) {
       Alert.alert("Faça login para anunciar um item.");
-      router.push("/profile");
+      navigation.navigate("Perfil");
       return;
     }
 
@@ -33,7 +33,7 @@ export default function NewAdScreen() {
       });
 
       Alert.alert("Anúncio publicado com sucesso.");
-      router.replace("/");
+      navigation.replace("Home");
     } catch (error) {
       Alert.alert("Erro ao publicar", error.message);
     }
@@ -42,7 +42,7 @@ export default function NewAdScreen() {
   if (loading) {
     return (
       <View style={styles.screen}>
-        <Text style={styles.helperText}>Carregando...</Text>
+        <Text style={styles.helperText}>A carregar...</Text>
       </View>
     );
   }
